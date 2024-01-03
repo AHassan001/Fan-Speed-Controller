@@ -1,0 +1,45 @@
+ /******************************************************************************
+ *
+ * Module: DC-Motor
+ *
+ * File Name: dc_motor.c
+ *
+ * Description: Source file for the Dc Motor driver
+ *
+ * Author: Abdelrahman Maher
+ *
+ *******************************************************************************/
+
+
+#include "dc_motor.h"
+
+/*******************************************************************************
+ *                           Global Variables                                  *
+ *******************************************************************************/
+
+uint8 g_speed;
+
+/*******************************************************************************
+ *                      Functions Definitions                                  *
+ *******************************************************************************/
+
+/*
+ * Description : Function to initialize the Dc Motor driver
+ * 	1. Set the required clock.
+ * 	2. Set the required edge detection.
+ * 	3. Enable the Input Capture Interrupt.
+ * 	4. Initialize Timer1 Registers
+ */
+void DcMotor_init(void)
+{
+
+}
+
+void DcMotor_Rotate(DcMotor_state state, uint8 speed)
+{
+
+}
+
+
+
+

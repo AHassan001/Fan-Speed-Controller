@@ -1,0 +1,58 @@
+ /******************************************************************************
+ *
+ * Module: ADC
+ *
+ * File Name: adc.h
+ *
+ * Description: header file for the ATmega32 ADC driver
+ *
+ * Author: Abdelrahman Maher
+ *
+ *******************************************************************************/
+
+#ifndef ADC_H_
+#define ADC_H_
+
+#include "std_types.h"
+
+/*******************************************************************************
+ *                                Definitions                                  *
+ *******************************************************************************/
+#define ADC_MAXIMUM_VALUE    1023
+#define ADC_REF_VOLT_VALUE   2.56
+
+
+typedef enum
+{
+	D_FACTOR_2,D_FACTOR_4 = 2,D_FACTOR_8,D_FACTOR_16,D_FACTOR_32,D_FACTOR_64,D_FACTOR_128
+}ADC_Prescaler;
+
+typedef enum
+{
+	AREF,AVCC,REVERSED,INTERNAL_VREF
+}ADC_RefrenceVoltage;
+
+typedef struct
+{
+	ADC_RefrenceVoltage ref_volt;
+	ADC_Prescaler prescaler;
+}ADC_ConfigType;
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+/*
+ * Description :
+ * Function responsible for initialize the ADC driver.
+ */
+void ADC_init(const ADC_ConfigType* config_Ptr);
+
+/*
+ * Description :
+ * Function responsible for read analog data from a certain ADC channel
+ * and convert it to digital using the ADC driver.
+ */
+uint16 ADC_readChannel(uint8 channel_num);
+
+#endif /* ADC_H_ */

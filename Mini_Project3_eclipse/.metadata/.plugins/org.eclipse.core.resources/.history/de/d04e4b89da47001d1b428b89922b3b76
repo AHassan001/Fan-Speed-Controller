@@ -1,0 +1,25 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: amahe
+ */
+#include "adc.h"
+#include "lm35_sensor.h"
+
+
+void main(void)
+{
+	uint8 temp =0;
+	ADC_ConfigType Adc_Config = {INTERNAL_VREF,D_FACTOR_8};
+
+	ADC_init( &Adc_Config);
+
+	LCD_init();
+
+	while(1)
+	{
+		temp = LM35_getTemperature();
+
+	}
+}

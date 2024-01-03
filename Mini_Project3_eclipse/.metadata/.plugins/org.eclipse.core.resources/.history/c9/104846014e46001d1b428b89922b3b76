@@ -1,0 +1,12 @@
+/*
+ * pwm_driver.c
+ *
+ *  Created on: Oct 7, 2022
+ *      Author: amahe
+ */
+#include "pwm_driver.h"
+
+void PWM_Timer0_Start (uint8 duty_cycle)
+{
+
+}

@@ -1,0 +1,63 @@
+/*
+ * Mini_Project3.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: amahe
+ */
+#include "adc.h"
+#include "lm35_sensor.h"
+#include "dc_motor.h"
+#include "lcd.h"
+#include "pwm_driver.h"
+
+
+void main(void)
+{
+	uint8 temp,digital_value =0;
+
+	ADC_ConfigType Adc_Config = {INTERNAL_VREF,D_FACTOR_8};
+	ADC_init(&Adc_Config);
+	LCD_init();
+	DcMotor_init();
+
+
+	LCD_displayStringRowColumn(0, 2, "FAN is ");
+	LCD_displayStringRowColumn(1, 2, "Temp =    C ");
+
+	while(1)
+	{
+		temp = LM35_getTemperature();
+		LCD_moveCursor(1,9);
+		LCD_intgerToString(temp);
+
+		 if (temp < 30)
+		 {
+			LCD_moveCursor(0,10);
+			LCD_displayString("OFF");
+		 }
+		 else if (temp >= 30 && temp < 60)
+		 {
+			 PWM_Timer0_Start(25);
+			 LCD_moveCursor(0,10);
+			 LCD_displayString("ON");
+		 }
+		 else if (temp >= 60 && temp < 90)
+		 {
+			 PWM_Timer0_Start(50);
+			 LCD_moveCursor(0,10);
+			 LCD_displayString("ON");
+		 }
+		 else if (temp >= 90 && temp < 120)
+		 {
+			 PWM_Timer0_Start(75);
+			 LCD_moveCursor(0,10);
+			 LCD_displayString("ON");
+		 }
+		 else if(temp >= 120)
+		 {
+			 PWM_Timer0_Start(100);
+			 LCD_moveCursor(0,10);
+			 LCD_displayString("ON");
+		 }
+	}
+}

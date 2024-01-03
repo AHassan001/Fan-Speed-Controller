@@ -1,0 +1,19 @@
+/*
+ * dc_motor.c
+ *
+ *  Created on: Oct 7, 2022
+ *      Author: amahe
+ */
+
+
+#include "dc_motor.h"
+
+void DcMotor_init(void)
+{
+
+}
+
+void DcMotor_Rotate(DcMotor_state state, uint8 speed)
+{
+
+}

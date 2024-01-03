@@ -1,0 +1,42 @@
+ /******************************************************************************
+ *
+ * Module: DC-Motor
+ *
+ * File Name: dc_motor.h
+ *
+ * Description: header file for the Dc Motor driver
+ *
+ * Author: Abdelrahman Maher
+ *
+ *******************************************************************************/
+
+
+#ifndef DC_MOTOR_H_
+#define DC_MOTOR_H_
+
+/*******************************************************************************
+ *                         Types Declaration                                   *
+ *******************************************************************************/
+extern speed;
+
+typedef enum
+{
+	stop, clockwise,anticlockwise
+}DcMotor_state;
+
+typedef struct
+{
+	DcMotor_state state;
+}Dc_motor_ConfigType;
+
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+
+void DcMotor_init(void);
+
+void DcMotor_Rotate(const Dc_motor_ConfigType * Config_Ptr, uint8 speed);
+
+#endif /* DC_MOTOR_H_ */
